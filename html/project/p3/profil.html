@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil Personnel</title>
+    <style>
+      /* Style global du corps de la page */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Police du texte */
+        margin: 0; /* Suppression des marges par défaut */
+        padding: 0; /* Suppression des paddings par défaut */
+        background-color: #f4f4f4; /* Couleur de fond */
+      }
+
+      /* En-tête */
+      header {
+        background-color: #2c3e50; /* Couleur de fond */
+        color: white; /* Couleur du texte */
+        padding: 40px 0; /* Espacement vertical */
+        text-align: center; /* Centrage du texte */
+        transition: background-color 0.3s; /* Animation sur hover */
+      }
+
+      /* Changement de couleur de fond au survol de l'en-tête */
+      header:hover {
+        background-color: #34495e;
+      }
+
+      /* Conteneur principal */
+      .profile-container {
+        max-width: 900px; /* Largeur max */
+        margin: 30px auto; /* Centrage avec marges verticales */
+        background: white; /* Fond blanc */
+        border-radius: 10px; /* Coins arrondis */
+        padding: 30px; /* Espacement interne */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre */
+        transition: transform 0.3s; /* Animation */
+      }
+
+      /* Effet zoom au survol */
+      .profile-container:hover {
+        transform: scale(1.01);
+      }
+
+      /* Style de la photo de profil */
+      .profile-pic {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%; /* Cercle */
+        object-fit: cover; /* Image bien cadrée */
+        display: block;
+        margin: 0 auto 20px; /* Centrage + espace bas */
+        transition: transform 0.3s ease-in-out; /* Animation de zoom */
+      }
+
+      /* Zoom au survol de la photo */
+      .profile-pic:hover {
+        transform: scale(1.1);
+      }
+
+      /* Titres */
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+      }
+
+      /* Biographie */
+      p.bio {
+        text-align: center;
+        font-size: 1.1em;
+        color: #333;
+        margin-bottom: 30px;
+      }
+
+      /* Liens sociaux */
+      .social-links {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      /* Style des icônes de lien social */
+      .social-links a {
+        margin: 0 10px;
+        text-decoration: none;
+        font-size: 1.5em;
+        color: #2c3e50;
+        transition: color 0.3s, transform 0.3s;
+      }
+
+      /* Effet de survol sur les icônes */
+      .social-links a:hover {
+        color: #e74c3c;
+        transform: scale(1.2);
+      }
+
+      /* Section compétences */
+      .skills {
+        padding: 10px;
+      }
+
+      .skills h2 {
+        color: #2c3e50;
+      }
+
+      .skills ul {
+        list-style: none; /* Pas de puces */
+        padding-left: 0;
+      }
+
+      .skills li {
+        background: #ecf0f1; /* Fond gris clair */
+        margin: 5px 0;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background 0.3s;
+      }
+
+      /* Couleur au survol des compétences */
+      .skills li:hover {
+        background: #bdc3c7;
+      }
+
+      /* Contenu additionnel */
+      .additional-content {
+        margin-top: 30px;
+      }
+
+      /* Tableau de formation */
+      table {
+        width: 100%;
+        border-collapse: collapse; /* Fusion des bordures */
+        margin-top: 20px;
+      }
+
+      /* Cellules du tableau */
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: left;
+      }
+
+      /* En-tête du tableau */
+      th {
+        background-color: #2c3e50;
+        color: white;
+      }
+
+      /* Lignes paires gris clair */
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      /* Pied de page */
+      footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #2c3e50;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Mon Profil Personnel</h1>
+    </header>
+
+    <div class="profile-container">
+      <img src="./img/pascoo.jpg" alt="Photo de profil" class="profile-pic" />
+      <h1>Pascoo</h1>
+      <p class="bio">
+        Développeur web et Mobile passionné par les technologies front-end,
+        l'accessibilité et l'expérience utilisateur. Curieux, créatif et
+        toujours prêt à relever de nouveaux défis.
+      </p>
+
+      <div class="social-links">
+        <a href="#" title="LinkedIn">🔗</a>
+        <a href="#" title="GitHub">🐙</a>
+        <a href="#" title="Twitter">🐦</a>
+      </div>
+
+      <div class="skills">
+        <h2>Compétences</h2>
+        <ul>
+          <li>HTML5 & CSS3</li>
+          <li>JavaScript (ES6+)</li>
+          <li>Responsive Design</li>
+          <li>Git & GitHub</li>
+          <li>Frameworks : React, Bootstrap</li>
+        </ul>
+      </div>
+
+      <div class="additional-content">
+        <h2>Centres d'intérêt</h2>
+        <ul>
+          <li>Lecture de blogs tech</li>
+          <li>Veille technologique</li>
+          <li>Design UI/UX</li>
+          <li>Jeux vidéo</li>
+        </ul>
+
+        <h2>Formations</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Année</th>
+              <th>Diplôme</th>
+              <th>Établissement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2023</td>
+              <td>Ingénieur Logiciel</td>
+              <td>École de Technologie Supérieure Montréal Canada</td>
+            </tr>
+            <tr>
+              <td>2018</td>
+              <td>DEC ou BTS en Informatique de gestion</td>
+              <td>Institut Teccart Montréal Canada</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 - Pascoo</p>
+    </footer>
+  </body>
+</html>

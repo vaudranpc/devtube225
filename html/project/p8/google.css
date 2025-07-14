@@ -1,0 +1,92 @@
+/* ===== Style global du body ===== */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff; /* Fond blanc classique */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Centre verticalement et horizontalement */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+/* ===== Conteneur principal ===== */
+.google-clone {
+  text-align: center;
+}
+
+/* ===== Logo Google ===== */
+.logo {
+  width: 272px; /* Largeur du logo officiel */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* ===== Formulaire de recherche ===== */
+.search-form {
+  display: inline-flex; /* Alignement horizontal des éléments */
+  flex-wrap: wrap; /* Permet de passer à la ligne sur petit écran */
+  justify-content: center;
+  gap: 10px; /* Espacement entre les éléments */
+}
+
+/* ===== Champ de saisie de la recherche ===== */
+.search-input {
+  width: 500px; /* Largeur du champ de recherche */
+  max-width: 90vw; /* Responsive sur petits écrans */
+  padding: 12px 20px;
+  font-size: 16px;
+  border: 1px solid #dfe1e5; /* Bordure grise claire */
+  border-radius: 24px; /* Bord arrondi */
+  box-shadow: none;
+  outline: none;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+/* ===== Focus sur le champ de recherche ===== */
+.search-input:focus {
+  box-shadow: 0 0 5px rgba(66, 133, 244, 0.8); /* Halo bleu au focus */
+  border-color: #4285f4;
+}
+
+/* ===== Boutons de recherche ===== */
+.search-btn,
+.lucky-btn {
+  background-color: #f8f9fa; /* Fond gris très clair */
+  border: 1px solid #f8f9fa;
+  color: #3c4043; /* Texte gris foncé */
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  white-space: nowrap; /* Empêche le texte de se couper */
+}
+
+/* ===== Effet au survol des boutons ===== */
+.search-btn:hover,
+.lucky-btn:hover {
+  background-color: #f1f3f4; /* Légère ombre au hover */
+  border-color: #c6c6c6;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Petite marge entre les deux boutons ===== */
+.lucky-btn {
+  margin-left: 8px;
+}
+
+/* ===== Responsive pour petits écrans ===== */
+@media (max-width: 600px) {
+  .search-input {
+    width: 100%; /* Prend toute la largeur */
+  }
+  .search-form {
+    flex-direction: column; /* Boutons sous le champ */
+    gap: 10px;
+  }
+  .lucky-btn {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog de Recettes</title>
+    <style>
+      /* Style de base du corps */
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Police moderne et lisible */
+        background-color: #fff8f0; /* Couleur de fond claire et chaleureuse */
+        margin: 0; /* Supprimer les marges par défaut */
+        padding: 0; /* Supprimer les paddings par défaut */
+      }
+
+      /* En-tête principal */
+      header {
+        background-color: #ff7043; /* Fond orange pour l'en-tête */
+        color: white; /* Couleur du texte en blanc */
+        text-align: center; /* Centrer le texte */
+        padding: 30px 0; /* Espacement vertical */
+      }
+
+      /* Titre de l'en-tête */
+      header h1 {
+        margin: 0; /* Aucun espacement autour du titre */
+      }
+
+      /* Conteneur général */
+      .container {
+        max-width: 1000px; /* Limite la largeur pour une bonne lisibilité */
+        margin: 30px auto; /* Centre le conteneur horizontalement avec une marge verticale */
+        padding: 0 20px; /* Espacement latéral intérieur */
+      }
+
+      /* Grille des recettes */
+      .recipes {
+        display: grid; /* Utilise la grille CSS */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colonnes adaptatives selon la taille de l'écran */
+        gap: 20px; /* Espacement entre les cartes */
+      }
+
+      /* Carte de recette */
+      .recipe-card {
+        background: white; /* Fond blanc pour chaque carte */
+        border-radius: 10px; /* Coins arrondis */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre douce autour de la carte */
+        overflow: hidden; /* Cache le contenu qui dépasse */
+        transition: transform 0.3s; /* Transition douce pour le hover */
+      }
+
+      /* Effet visuel quand la souris survole une carte */
+      .recipe-card:hover {
+        transform: translateY(-5px); /* Légère remontée de la carte */
+      }
+
+      /* Image dans chaque carte */
+      .recipe-card img {
+        width: 100%; /* L'image occupe toute la largeur */
+        height: 200px; /* Hauteur fixe */
+        object-fit: cover; /* Couvre l'espace sans déformation */
+      }
+
+      /* Contenu textuel de la recette */
+      .recipe-content {
+        padding: 15px; /* Espacement interne */
+      }
+
+      /* Titre de la recette */
+      .recipe-content h2 {
+        margin-top: 0; /* Supprime la marge du haut */
+        color: #ff7043; /* Couleur orange pour rappeler l'identité visuelle */
+      }
+
+      /* Description */
+      .recipe-content p {
+        color: #555; /* Texte gris foncé pour le contraste */
+      }
+
+      /* Liste des ingrédients */
+      .recipe-content ul {
+        padding-left: 20px; /* Indentation à gauche */
+        color: #333; /* Couleur sombre pour les textes */
+      }
+
+      /* Liste des étapes */
+      .recipe-content ol {
+        padding-left: 20px; /* Indentation à gauche */
+        color: #444; /* Texte un peu plus sombre */
+      }
+
+      /* Pied de page */
+      footer {
+        text-align: center; /* Centrer le texte */
+        padding: 20px; /* Espacement interne */
+        background-color: #ff7043; /* Même fond que l'en-tête */
+        color: white; /* Texte blanc */
+        margin-top: 40px; /* Marge au-dessus du pied de page */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Blog de Recettes Ivoiriennes</h1>
+      <p>Garba, sauce n’tro et autres délices de chez nous !</p>
+    </header>
+
+    <div class="container">
+      <div class="recipes">
+        <!-- Carte recette Garba -->
+        <div class="recipe-card">
+          <img src="https://via.placeholder.com/400x200?text=Garba" alt="Garba" />
+          <div class="recipe-content">
+            <h2>Garba</h2>
+            <p>Le plat populaire ivoirien à base d'attiéké et de poisson thon frit, souvent accompagné de piment et oignon.</p>
+            <h3>Ingrédients :</h3>
+            <ul>
+              <li>Attiéké</li>
+              <li>Thon frit (garba)</li>
+              <li>Oignon</li>
+              <li>Piment, sel, cube</li>
+              <li>Huile</li>
+            </ul>
+            <h3>Préparation :</h3>
+            <ol>
+              <li>Réchauffer l’attiéké à la vapeur ou au micro-onde avec un peu d’eau.</li>
+              <li>Faire frire le thon assaisonné dans l’huile chaude.</li>
+              <li>Couper les oignons, mélanger avec le piment et un peu d’huile.</li>
+              <li>Servir le tout ensemble, bien chaud.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Carte recette Sauce N’tro -->
+        <div class="recipe-card">
+          <img src="https://via.placeholder.com/400x200?text=Sauce+Ntro" alt="Sauce N’tro" />
+          <div class="recipe-content">
+            <h2>Sauce N’tro</h2>
+            <p>Une sauce épicée et fumée du peuple Akan, souvent dégustée avec du foutou ou du riz.</p>
+            <h3>Ingrédients :</h3>
+            <ul>
+              <li>Viande ou poisson fumé</li>
+              <li>Tomate, aubergines africaines</li>
+              <li>Piments frais</li>
+              <li>Oignon, sel, cube</li>
+              <li>Huile rouge ou d’arachide</li>
+            </ul>
+            <h3>Préparation :</h3>
+            <ol>
+              <li>Faire bouillir les légumes puis les écraser (aubergines, tomate, piment).</li>
+              <li>Faire revenir la viande/poisson avec oignons et huile.</li>
+              <li>Ajouter les légumes écrasés, assaisonner et laisser mijoter.</li>
+              <li>Servir chaud avec foutou ou riz.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 - Blog de Recettes Pascoo</p>
+    </footer>
+  </body>
+</html>

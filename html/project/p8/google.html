@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Clone Google Search</title>
+    <link rel="stylesheet" href="./google.css" />
+  </head>
+  <body>
+    <div class="google-clone">
+      <img
+        src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+        alt="Google Logo"
+        class="logo"
+      />
+      <form
+        action="https://www.google.com/search"
+        method="GET"
+        class="search-form"
+      >
+        <input
+          type="text"
+          name="q"
+          class="search-input"
+          placeholder="Recherche Google ou saisissez une URL"
+          autocomplete="off"
+          required
+        />
+        <button type="submit" class="search-btn">Recherche Google</button>
+        <button
+          type="submit"
+          name="btnI"
+          value="I'm Feeling Lucky"
+          class="lucky-btn"
+        >
+          J'ai de la chance
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

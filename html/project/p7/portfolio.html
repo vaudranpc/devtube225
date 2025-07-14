@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil Étudiant</title>
+    <style>
+      /* === Style global de la page : police, marges, couleurs === */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Police moderne et lisible */
+        margin: 0; /* Supprimer marge par défaut */
+        padding: 0; /* Supprimer padding par défaut */
+        background-color: #eef6f9; /* Fond clair apaisant */
+        color: #333; /* Couleur texte sombre pour lisibilité */
+        line-height: 1.6; /* Espacement ligne confortable */
+      }
+
+      /* === Style de l'en-tête : fond, texte, alignement === */
+      header {
+        background-color: #005f73; /* Bleu-vert sombre */
+        color: white; /* Texte blanc pour contraste */
+        padding: 30px 20px; /* Espace interne haut/bas et latéral */
+        text-align: center; /* Centrer le texte */
+      }
+
+      /* === Titre principal === */
+      header h1 {
+        margin: 0; /* Enlever marge par défaut du h1 */
+        font-size: 2.5em; /* Taille importante pour titre */
+      }
+
+      /* === Conteneur central : largeur max, centrage, fond et ombre === */
+      .container {
+        max-width: 1000px; /* Largeur max pour contenu lisible */
+        margin: 30px auto; /* Centrer horizontalement avec marge verticale */
+        padding: 20px; /* Espace interne pour respirer */
+        background-color: white; /* Fond blanc net pour contraste */
+        border-radius: 10px; /* Bords arrondis pour douceur visuelle */
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+      }
+
+      /* === Titres secondaires h2 : couleur, bordure et padding === */
+      h2 {
+        color: #0a9396; /* Vert turquoise sombre */
+        border-bottom: 2px solid #94d2bd; /* Ligne sous le titre pour séparation */
+        padding-bottom: 5px; /* Petit espacement sous texte */
+      }
+
+      /* === Liste compétences : supprimer puces et padding === */
+      ul.skills {
+        list-style: none; /* Retirer les puces classiques */
+        padding: 0; /* Enlever padding par défaut */
+      }
+
+      /* === Items compétences : fond, bordure gauche, marges, padding === */
+      ul.skills li {
+        background-color: #e9f5f3; /* Fond doux vert pâle */
+        border-left: 5px solid #0a9396; /* Barre colorée à gauche */
+        margin-bottom: 10px; /* Espacement entre items */
+        padding: 10px; /* Padding interne confortable */
+        border-radius: 4px; /* Bords légèrement arrondis */
+      }
+
+      /* === Tableau expériences : largeur, bordures, marge === */
+      table {
+        width: 100%; /* Prend toute la largeur disponible */
+        border-collapse: collapse; /* Fusion des bordures */
+        margin-top: 20px; /* Marge au-dessus pour séparation */
+      }
+
+      /* === Bordures tableau === */
+      table,
+      th,
+      td {
+        border: 1px solid #ccc; /* Bordure gris clair pour séparation */
+      }
+
+      /* === En-tête du tableau : fond et texte === */
+      th {
+        background-color: #0a9396; /* Fond vert turquoise sombre */
+        color: white; /* Texte blanc */
+        padding: 10px; /* Espacement interne */
+        text-align: left; /* Alignement texte à gauche */
+      }
+
+      /* === Cellules de tableau === */
+      td {
+        padding: 10px; /* Padding confortable */
+      }
+
+      /* === Formulaire contact : grille et espacement === */
+      form {
+        margin-top: 30px; /* Marge au-dessus pour espacer */
+        display: grid; /* Grille CSS pour espacer les champs */
+        grid-template-columns: 1fr; /* Une colonne */
+        gap: 15px; /* Espace entre éléments */
+      }
+
+      /* === Champs texte et textarea === */
+      input,
+      textarea {
+        padding: 12px; /* Padding interne confortable */
+        border: 1px solid #ccc; /* Bordure grise claire */
+        border-radius: 5px; /* Bords arrondis */
+        font-size: 1rem; /* Taille de police lisible */
+      }
+
+      /* === Focus sur champs : couleur de bordure === */
+      input:focus,
+      textarea:focus {
+        border-color: #0a9396; /* Vert turquoise au focus */
+        outline: none; /* Retirer contour par défaut */
+      }
+
+      /* === Bouton envoyer : couleur, padding, transition === */
+      button {
+        background-color: #005f73; /* Couleur bleu-vert foncé */
+        color: white; /* Texte blanc */
+        padding: 12px; /* Padding confortable */
+        font-size: 1rem; /* Taille texte */
+        border: none; /* Pas de bordure */
+        border-radius: 5px; /* Coins arrondis */
+        cursor: pointer; /* Curseur main au survol */
+        transition: background-color 0.3s ease; /* Transition douce sur couleur */
+      }
+
+      /* === Hover sur bouton === */
+      button:hover {
+        background-color: #0a9396; /* Couleur plus claire au survol */
+      }
+
+      /* === Responsive : adaptation mobile === */
+      @media (max-width: 600px) {
+        header h1 {
+          font-size: 2em; /* Réduction taille titre sur mobile */
+        }
+
+        .container {
+          margin: 10px; /* Marges réduites pour petit écran */
+          padding: 15px; /* Padding réduit */
+        }
+      }
+
+      /* === Style pour la section vidéo : centrage et taille === */
+      .video-container {
+        margin-top: 40px; /* Marge haute pour espacement */
+        display: flex; /* Flexbox centré horizontalement */
+        justify-content: center; /* Centre le contenu horizontalement */
+      }
+
+      iframe {
+        border: none; /* Pas de bordure */
+        border-radius: 10px; /* Coins arrondis sur vidéo */
+        width: 100%; /* Largeur pleine largeur conteneur */
+        max-width: 640px; /* Largeur max fixe */
+        height: 360px; /* Hauteur standard HD 16:9 */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Profil de Pascoo</h1>
+      <p>Étudiant en Informatique - Passionné de développement web</p>
+    </header>
+
+    <div class="container">
+      <section>
+        <h2>Projets</h2>
+        <p>Voici quelques projets personnels réalisés :</p>
+        <ul>
+          <li>Portfolio personnel en HTML/CSS</li>
+          <li>Blog de recettes responsive</li>
+          <li>Application météo avec API OpenWeather</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Compétences</h2>
+        <ul class="skills">
+          <li>HTML5, CSS3 (Flexbox, Grid)</li>
+          <li>Responsive Design & Accessibilité</li>
+          <li>Git, GitHub, Figma</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Expériences</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Année</th>
+              <th>Organisation</th>
+              <th>Poste</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2024</td>
+              <td>OpenClassrooms</td>
+              <td>Stagiaire Front-End</td>
+            </tr>
+            <tr>
+              <td>2023</td>
+              <td>Projet personnel</td>
+              <td>Création d’un blog de tutoriels</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Vidéo de Présentation</h2>
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <form>
+          <input type="text" name="nom" placeholder="Votre nom" required />
+          <input type="email" name="email" placeholder="Votre email" required />
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Votre message..."
+            required
+          ></textarea>
+          <button type="submit">Envoyer</button>
+        </form>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulaire Stylé</title>
+    <style>
+      /* Style global du corps de la page */
+      body {
+        font-family: Arial, sans-serif; /* Police principale */
+        background-color: #e0f7f1; /* Couleur de fond verte douce */
+        margin: 0;
+        padding: 0;
+        display: flex; /* Centrage horizontal et vertical */
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Prend toute la hauteur de l'écran */
+      }
+
+      /* Conteneur du formulaire */
+      .form-container {
+        background-color: #ffffff; /* Fond blanc */
+        padding: 30px; /* Espacement interne */
+        border-radius: 10px; /* Coins arrondis */
+        box-shadow: 0 0 20px rgba(0, 128, 128, 0.2); /* Ombre douce turquoise */
+        width: 100%;
+        max-width: 420px; /* Largeur maximale */
+      }
+
+      /* Titre du formulaire */
+      h2 {
+        text-align: center; /* Centrage du texte */
+        color: #00796b; /* Couleur verte foncée */
+        margin-bottom: 20px; /* Espacement en bas */
+      }
+
+      /* Style des champs */
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: 100%; /* Prend toute la largeur */
+        padding: 12px; /* Espacement interne */
+        margin-bottom: 15px; /* Espacement entre les champs */
+        border: 1px solid #ccc; /* Bordure grise */
+        border-radius: 5px; /* Coins arrondis */
+        transition: border-color 0.3s; /* Animation douce */
+        background-color: #f9fdfa; /* Fond très clair */
+      }
+
+      /* Effet focus sur les champs */
+      input:focus {
+        border-color: #26a69a; /* Bordure turquoise au focus */
+        outline: none; /* Retirer le contour */
+        background-color: #ffffff; /* Fond blanc lors du focus */
+      }
+
+      /* Bouton de soumission */
+      button {
+        width: 100%; /* Largeur totale */
+        padding: 12px; /* Espacement interne */
+        background-color: #00796b; /* Fond vert foncé */
+        color: white; /* Texte blanc */
+        border: none; /* Pas de bordure */
+        border-radius: 5px; /* Coins arrondis */
+        font-size: 16px; /* Taille du texte */
+        cursor: pointer; /* Curseur pointer */
+        transition: background-color 0.3s ease; /* Animation douce */
+      }
+
+      /* Effet hover sur le bouton */
+      button:hover {
+        background-color: #004d40; /* Vert encore plus foncé au survol */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Créer un compte</h2>
+      <form>
+        <input type="text" name="name" placeholder="Votre nom" required />
+        <input type="email" name="email" placeholder="Votre email" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Mot de passe"
+          required
+        />
+        <button type="submit">Soumettre</button>
+      </form>
+    </div>
+  </body>
+</html>

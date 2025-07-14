@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entreprise Locale - Vitrine</title>
+    <style>
+      /* Style global du corps de page */
+      body {
+        font-family: Arial, sans-serif; /* Police moderne */
+        margin: 0; /* Suppression des marges */
+        padding: 0; /* Suppression des espacements internes */
+        background-color: #f5f5f5; /* Couleur de fond douce */
+        color: #333; /* Couleur de texte standard */
+      }
+
+      /* Style de l'en-tête */
+      header {
+        background-color: #003366; /* Bleu foncé */
+        color: white; /* Texte en blanc */
+        padding: 20px; /* Espacement interne */
+        text-align: center; /* Centrage du contenu */
+      }
+
+      /* Style de la barre de navigation */
+      nav {
+        background-color: #0055a5; /* Bleu moyen */
+        padding: 10px; /* Espacement interne */
+        display: flex; /* Affichage en ligne */
+        justify-content: center; /* Centrage horizontal */
+        gap: 20px; /* Espacement entre les liens */
+      }
+
+      /* Style des liens de navigation */
+      nav a {
+        color: white; /* Texte blanc */
+        text-decoration: none; /* Suppression du soulignement */
+        font-weight: bold; /* Texte en gras */
+        transition: color 0.3s; /* Transition douce pour hover */
+      }
+
+      /* Effet hover sur les liens */
+      nav a:hover {
+        color: #ffcc00; /* Jaune lors du survol */
+      }
+
+      /* Conteneur des sections */
+      .section {
+        max-width: 1000px; /* Largeur maximale */
+        margin: 40px auto; /* Centrage et espacement vertical */
+        padding: 20px; /* Espacement interne */
+        background: white; /* Fond blanc */
+        border-radius: 8px; /* Coins arrondis */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre portée */
+      }
+
+      /* Style des listes */
+      .services-list,
+      .about-list {
+        list-style: disc; /* Puces rondes */
+        padding-left: 20px; /* Indentation à gauche */
+      }
+
+      /* Style du formulaire de contact */
+      form {
+        display: flex; /* Affichage en colonne */
+        flex-direction: column;
+        gap: 15px; /* Espacement entre champs */
+      }
+
+      /* Champs de formulaire */
+      input,
+      textarea {
+        padding: 10px; /* Espacement interne */
+        font-size: 1rem; /* Taille de police */
+        border: 1px solid #ccc; /* Bordure grise */
+        border-radius: 4px; /* Coins arrondis */
+      }
+
+      /* Effet de focus sur les champs */
+      input:focus,
+      textarea:focus {
+        border-color: #003366; /* Bordure bleue lors du focus */
+        outline: none; /* Suppression du contour */
+      }
+
+      /* Bouton d'envoi */
+      button {
+        padding: 10px 15px; /* Espacement interne */
+        font-size: 1rem; /* Taille du texte */
+        background-color: #003366; /* Bleu foncé */
+        color: white; /* Texte blanc */
+        border: none; /* Pas de bordure */
+        border-radius: 4px; /* Coins arrondis */
+        cursor: pointer; /* Curseur pointeur */
+        transition: background-color 0.3s; /* Transition douce */
+      }
+
+      /* Hover sur le bouton */
+      button:hover {
+        background-color: #0055a5; /* Bleu plus clair */
+      }
+
+      /* Pied de page */
+      footer {
+        text-align: center; /* Centrage du texte */
+        padding: 20px; /* Espacement interne */
+        background-color: #003366; /* Fond bleu */
+        color: white; /* Texte blanc */
+        margin-top: 40px; /* Espacement avec la dernière section */
+      }
+
+      /* Réactivité mobile */
+      @media (max-width: 768px) {
+        nav {
+          flex-direction: column; /* Menu vertical en petit écran */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Entreprise Locale</h1>
+      <p>Solutions locales pour besoins locaux</p>
+    </header>
+
+    <nav>
+      <a href="#accueil">Accueil</a>
+      <a href="#services">Services</a>
+      <a href="#apropos">À propos</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="accueil" class="section">
+      <h2>Bienvenue chez Entreprise Locale</h2>
+      <p>
+        Nous sommes une entreprise engagée à servir la communauté avec des
+        produits et services adaptés à vos besoins quotidiens.
+      </p>
+    </section>
+
+    <section id="services" class="section">
+      <h2>Nos Services</h2>
+      <ul class="services-list">
+        <li>Livraison à domicile</li>
+        <li>Consultation gratuite</li>
+        <li>Support client 24h/24</li>
+        <li>Produits artisanaux locaux</li>
+      </ul>
+    </section>
+
+    <section id="apropos" class="section">
+      <h2>À propos de nous</h2>
+      <ul class="about-list">
+        <li>Fondée en 2010 par des passionnés de la région</li>
+        <li>Entreprise à taille humaine</li>
+        <li>Respectueuse de l’environnement</li>
+        <li>Active dans les projets communautaires</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contactez-nous</h2>
+      <form>
+        <input type="text" name="name" placeholder="Votre nom" required />
+        <input
+          type="email"
+          name="email"
+          placeholder="Votre adresse email"
+          required
+        />
+        <textarea
+          name="message"
+          placeholder="Votre message"
+          rows="5"
+          required
+        ></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Entreprise Locale - Tous droits réservés</p>
+    </footer>
+  </body>
+</html>
