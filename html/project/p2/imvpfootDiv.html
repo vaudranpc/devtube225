@@ -2,120 +2,157 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <!-- Encodage UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MVP Foot</title>
+    <!-- Responsive -->
+    <title>Galerie d'Images</title>
+    <!-- Titre de la page -->
     <style>
+      /* ==== RESET & BASE ==== */
+      * {
+        margin: 0; /* Supprime les marges */
+        padding: 0; /* Supprime les paddings */
+        box-sizing: border-box; /* Calcule les tailles avec bordures incluses */
+      }
+
       body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
+        font-family: "Segoe UI", sans-serif; /* Police moderne */
+        background-color: #f5f5f5; /* Fond gris clair */
+        color: #333; /* Texte gris foncé */
+        line-height: 1.6; /* Hauteur de ligne confortable */
+        padding: 20px; /* Espacement général */
       }
+
+      /* ==== EN-TÊTE ==== */
       header {
-        background-color: #1a1a1a;
-        color: #fff;
-        padding: 20px 0;
-        text-align: center;
+        text-align: center; /* Centre le texte */
+        margin-bottom: 40px; /* Espace en bas */
       }
-      nav {
-        background-color: #333;
-        display: flex;
-        justify-content: center;
+
+      header h1 {
+        font-size: 2.5em; /* Taille du titre */
+        color: #444; /* Couleur du texte */
       }
-      img {
-        height: 200px;
-        width: 200px;
+
+      /* ==== GRILLE DE GALERIE ==== */
+      .galerie {
+        display: grid; /* Utilise CSS Grid */
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(250px, 1fr)
+        ); /* Colonnes responsives */
+        gap: 20px; /* Espacement entre les cartes */
+        max-width: 1200px; /* Largeur maximale */
+        margin: auto; /* Centre la galerie */
+        padding: 0 10px; /* Marges internes */
       }
-      nav a {
-        color: white;
-        padding: 15px 20px;
-        text-decoration: none;
-        text-transform: uppercase;
+
+      /* ==== STYLE DES FIGURES ==== */
+      .galerie figure {
+        background-color: #fff; /* Fond blanc */
+        border-radius: 8px; /* Coins arrondis */
+        overflow: hidden; /* Cache débordements */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre douce */
+        transition: transform 0.3s ease; /* Animation douce */
+        display: flex; /* Flexbox verticale */
+        flex-direction: column; /* Empile image + texte */
+        align-items: center; /* Centre horizontalement */
       }
-      nav a:hover {
-        background-color: #555;
+
+      /* ==== IMAGE DE LA GALERIE ==== */
+      .galerie img {
+        width: 100%; /* Largeur totale */
+        height: 300px; /* Hauteur fixe */
+        object-fit: cover; /* Coupe et remplit l’espace sans déformer */
+        transition: transform 0.4s ease-in-out; /* Zoom fluide */
+        display: block; /* Évite les espaces sous l’image */
       }
-      .container {
-        max-width: 1000px;
-        margin: 20px auto;
-        padding: 0 20px;
+
+      /* ==== TEXTE SOUS L’IMAGE ==== */
+      .galerie figcaption {
+        padding: 12px; /* Espacement interne */
+        text-align: center; /* Centre le texte */
+        font-weight: bold; /* Gras */
+        font-size: 1rem; /* Taille standard */
+        color: #555; /* Gris doux */
       }
-      .news {
-        background: white;
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+      /* ==== HOVER EFFECT SUR L’IMAGE ==== */
+      .galerie figure:hover img {
+        transform: scale(1.1); /* Zoom image */
       }
-      .news h2 {
-        color: #1a1a1a;
+
+      .galerie figure:hover {
+        transform: translateY(-5px); /* Lévitation carte */
       }
-      .news img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 5px;
-        margin: 10px 0;
-      }
+
+      /* ==== PIED DE PAGE ==== */
       footer {
-        text-align: center;
-        padding: 20px;
-        background-color: #1a1a1a;
-        color: #fff;
+        text-align: center; /* Centre le texte */
+        margin-top: 60px; /* Espace au-dessus */
+        color: #777; /* Texte clair */
+        font-size: 0.9em; /* Petite taille */
       }
     </style>
   </head>
   <body>
+    <!-- En-tête principale -->
     <header>
-      <h1>MVP Foot</h1>
-      <p>Les dernières nouvelles du football ivoirien et international</p>
+      <h1>Le 11 de l'équipe de Côte d'Ivoire pour la CAN 2025</h1>
     </header>
 
-    <nav>
-      <a href="#">Accueil</a>
-      <a href="#">Football</a>
-      <a href="#">Mercato</a>
-      <a href="#">Interviews</a>
-      <a href="#">Contact</a>
-    </nav>
+    <!-- Galerie d’images -->
+    <main class="galerie">
+      <!-- Chaque figure contient une image et sa légende -->
+      <figure>
+        <img src="./img/yahia.jpeg" alt="Image 1" />
+        <figcaption>Yahia Fofana</figcaption>
+      </figure>
+      <figure>
+        <img src="./img/singo.jpeg" alt="Image 2" />
+        <figcaption>Wilfried Singo</figcaption>
+      </figure>
+      <figure>
+        <img src="./img/agbadou.jpeg" alt="Image 3" />
+        <figcaption>Emmanuel Agbadou</figcaption>
+      </figure>
+      <figure>
+        <img src="./img/Ndicka.jpeg" alt="Image 4" />
+        <figcaption>Evan N'Dicka</figcaption>
+      </figure>
+      <figure>
+        <img src="./img/operi.jpeg" alt="Image 5" />
+        <figcaption>Christopher Operi</figcaption>
+      </figure>
+      <figure>
+        <img src="./img/kessié.jpg" alt="Image 6" />
+        <figcaption>Franck Kessié</figcaption>
+      </figure>
+      <figure>
+        <img src="./img/sangaré.jpg" alt="Image 7" />
+        <figcaption>Ibrahim Sangaré</figcaption>
+      </figure>
+      <figure>
+        <img src="./img/seko.jpg" alt="Image 8" />
+        <figcaption>Séko Fofana</figcaption>
+      </figure>
+      <figure>
+        <img src="./img/amad.webp" alt="Image 9" />
+        <figcaption>Amad Diallo</figcaption>
+      </figure>
+      <figure>
+        <img src="./img/adingra.jpeg" alt="Image 10" />
+        <figcaption>Simon Adingra</figcaption>
+      </figure>
+      <figure>
+        <img src="./img/haller.jpg" alt="Image 11" />
+        <figcaption>Sébastien Haller</figcaption>
+      </figure>
+    </main>
 
-    <div class="container">
-      <div class="news">
-        <h2>Simon Adingra signe à Sunderland pour 18M£ !</h2>
-        <img src="./img/adingra.jpg" alt="Simon Adingra à Sunderland" />
-        <p>
-          <strong>08 juillet 2025</strong> - L’attaquant ivoirien Simon Adingra
-          quitte Brighton pour rejoindre Sunderland. Un transfert estimé à 18
-          millions de livres sterling, avec 2,5M£ de bonus. Une nouvelle
-          aventure en Premier League commence !
-        </p>
-      </div>
-
-      <div class="news">
-        <h2>Classement FIFA : La Côte d'Ivoire perd 4 places</h2>
-        <img src="./img/civ.jpg" alt="Classement FIFA Côte d'Ivoire" />
-        <p>
-          <strong>05 juillet 2025</strong> - Malgré sa victoire à la CAN 2024,
-          la Côte d’Ivoire recule au classement FIFA. Une baisse qui soulève des
-          questions sur le niveau actuel de l’équipe nationale.
-        </p>
-      </div>
-
-      <div class="news">
-        <h2>Souleymane Coulibaly signe à l’IFK Värnamo en Suède</h2>
-        <img
-          src="./img/coulibaly.jpeg"
-          alt="Souleymane Coulibaly IFK Värnamo"
-        />
-        <p>
-          <strong>04 juillet 2025</strong> - L’ancien défenseur de l’ASEC
-          Mimosas s'engage avec le club suédois pour deux ans et demi. Un
-          nouveau défi pour ce talent prometteur du football ivoirien.
-        </p>
-      </div>
-    </div>
-
+    <!-- Pied de page -->
     <footer>
-      <p>&copy; 2025 MVP Foot - Tous droits réservés</p>
+      <p>© 2025 Ma Galerie | Tous droits réservés</p>
     </footer>
   </body>
 </html>
