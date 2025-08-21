@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Générateur de QR Code</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+    h1 {
+      font-size: 2em;
+      margin: 20px 0;
+      color: #006400;
+    }
+    .qr-generator {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #006400;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #004d00;
+    }
+    #qrCode {
+      margin-top: 20px;
+    }
+    .error {
+      color: #ff4444;
+      font-size: 0.9em;
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Générateur de QR Code</h1>
+  <div class="qr-generator">
+    <input type="text" id="qrInput" placeholder="Entrez un texte ou une URL">
+    <button onclick="generateQRCode()">Générer QR Code</button>
+    <div id="error" class="error">Veuillez entrer un texte ou une URL valide.</div>
+    <div id="qrCode"></div>
+  </div>
+
+  <script>
+    // Fonction pour générer le QR Code
+    function generateQRCode() {
+      const qrInput = document.getElementById('qrInput');
+      const qrCodeDiv = document.getElementById('qrCode');
+      const errorDiv = document.getElementById('error');
+      
+      // Réinitialiser les messages et le QR Code
+      errorDiv.style.display = 'none';
+      qrCodeDiv.innerHTML = '';
+
+      // Vérifier si l'entrée est vide
+      const inputText = qrInput.value.trim();
+      if (inputText === '') {
+        errorDiv.style.display = 'block';
+        return;
+      }
+
+      // Générer le QR Code avec la bibliothèque qrcode.js
+      new QRCode(qrCodeDiv, {
+        text: inputText,
+        width: 200,
+        height: 200,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H // Niveau de correction d'erreur élevé
+      });
+    }
+
+    // Permettre la génération avec la touche "Entrée"
+    document.getElementById('qrInput').addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        generateQRCode();
+      }
+    });
+  </script>
+</body>
+</html>

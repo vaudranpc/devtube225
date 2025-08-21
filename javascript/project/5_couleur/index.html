@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changeur de Couleur de Fond Aléatoire</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      transition: background-color 0.5s ease;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #006400;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #004d00;
+    }
+    #colorCode {
+      font-size: 1.2em;
+      margin-top: 20px;
+      color: #fff;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <h1>Changeur de Couleur de Fond</h1>
+  <button onclick="changeBackgroundColor()">Changer la Couleur</button>
+  <div id="colorCode">Cliquez pour générer une couleur !</div>
+
+  <script>
+    function changeBackgroundColor() {
+      const r = Math.floor(Math.random() * 256);
+      const g = Math.floor(Math.random() * 256);
+      const b = Math.floor(Math.random() * 256);
+      const color = `rgb(${r}, ${g}, ${b})`;
+      document.body.style.backgroundColor = color;
+      document.getElementById('colorCode').textContent = `Couleur : ${color}`;
+    }
+  </script>
+</body>
+</html>

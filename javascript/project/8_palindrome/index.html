@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vérificateur de Palindrome</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #006400;
+    }
+    .checker {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 1em;
+      width: 70%;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #006400;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #004d00;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #006400;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vérificateur de Palindrome</h1>
+  <div class="checker">
+    <input type="text" id="inputText" placeholder="Entrez un mot ou une phrase" oninput="checkPalindrome()">
+    <button onclick="checkPalindrome()">Vérifier</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    // Fonction pour vérifier si une chaîne est un palindrome
+    function checkPalindrome() {
+      // Récupérer la valeur de l'input
+      const inputText = document.getElementById('inputText').value;
+      const resultDiv = document.getElementById('result');
+
+      // Si l'input est vide, effacer le résultat
+      if (inputText.trim() === '') {
+        resultDiv.textContent = '';
+        return;
+      }
+
+      // Nettoyer la chaîne : enlever la casse, les espaces et la ponctuation
+      const cleanedText = inputText.toLowerCase().replace(/[^a-z0-9]/g, '');
+      
+      // Inverser la chaîne nettoyée
+      const reversedText = cleanedText.split('').reverse().join('');
+
+      // Vérifier si la chaîne nettoyée est égale à son inverse
+      if (cleanedText === reversedText) {
+        resultDiv.textContent = `"${inputText}" est un palindrome !`;
+        resultDiv.style.color = '#006400';
+      } else {
+        resultDiv.textContent = `"${inputText}" n'est pas un palindrome.`;
+        resultDiv.style.color = '#ff4444';
+      }
+    }
+
+    // Permettre la vérification en appuyant sur "Entrée"
+    document.getElementById('inputText').addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        checkPalindrome();
+      }
+    });
+  </script>
+</body>
+</html>

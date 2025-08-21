@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convertisseur Celsius ↔ Fahrenheit</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+      color: #333;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #006400;
+    }
+    .converter {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+    input[type="number"] {
+      padding: 10px;
+      font-size: 1em;
+      width: 100px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    label {
+      font-size: 1.2em;
+      margin-right: 10px;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #006400;
+    }
+    .input-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Convertisseur Celsius ↔ Fahrenheit</h1>
+  <div class="converter">
+    <div class="input-group">
+      <label for="celsius">Celsius:</label>
+      <input type="number" id="celsius" placeholder="Entrez °C" oninput="convertCelsiusToFahrenheit()">
+    </div>
+    <div class="input-group">
+      <label for="fahrenheit">Fahrenheit:</label>
+      <input type="number" id="fahrenheit" placeholder="Entrez °F" oninput="convertFahrenheitToCelsius()">
+    </div>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function convertCelsiusToFahrenheit() {
+      const celsiusInput = document.getElementById('celsius').value;
+      const fahrenheitInput = document.getElementById('fahrenheit');
+      const resultDiv = document.getElementById('result');
+
+      if (celsiusInput === '') {
+        fahrenheitInput.value = '';
+        resultDiv.textContent = '';
+        return;
+      }
+
+      const celsius = parseFloat(celsiusInput);
+      if (isNaN(celsius)) {
+        resultDiv.textContent = 'Veuillez entrer un nombre valide.';
+        return;
+      }
+
+      const fahrenheit = (celsius * 9/5) + 32;
+      fahrenheitInput.value = fahrenheit.toFixed(2);
+      resultDiv.textContent = `${celsius}°C = ${fahrenheit.toFixed(2)}°F`;
+    }
+
+    function convertFahrenheitToCelsius() {
+      const fahrenheitInput = document.getElementById('fahrenheit').value;
+      const celsiusInput = document.getElementById('celsius');
+      const resultDiv = document.getElementById('result');
+
+      if (fahrenheitInput === '') {
+        celsiusInput.value = '';
+        resultDiv.textContent = '';
+        return;
+      }
+
+      const fahrenheit = parseFloat(fahrenheitInput);
+      if (isNaN(fahrenheit)) {
+        resultDiv.textContent = 'Veuillez entrer un nombre valide.';
+        return;
+      }
+
+      const celsius = (fahrenheit - 32) * 5/9;
+      celsiusInput.value = celsius.toFixed(2);
+      resultDiv.textContent = `${fahrenheit}°F = ${celsius.toFixed(2)}°C`;
+    }
+  </script>
+</body>
+</html>

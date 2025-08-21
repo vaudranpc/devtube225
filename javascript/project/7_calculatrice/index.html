@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculatrice Simple</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #006400;
+    }
+    .calculator {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 300px;
+      width: 100%;
+    }
+    #display {
+      width: 100%;
+      padding: 10px;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: right;
+      box-sizing: border-box;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap
+
+: 5px;
+    }
+    button {
+      padding: 15px;
+      font-size: 1.2em;
+      background-color: #006400;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #004d00;
+    }
+    .operator {
+      background-color: #ff9500;
+    }
+    .operator:hover {
+      background-color: #cc7700;
+    }
+    .clear {
+      background-color: #ff4444;
+    }
+    .clear:hover {
+      background-color: #cc0000;
+    }
+    .equals {
+      background-color: #4caf50;
+    }
+    .equals:hover {
+      background-color: #388e3c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Calculatrice Simple</h1>
+  <div class="calculator">
+    <input type="text" id="display" readonly value="0">
+    <div class="buttons">
+      <button class="clear" onclick="clearDisplay()">C</button>
+      <button onclick="appendToDisplay('(')">(</button>
+      <button onclick="appendToDisplay(')')">)</button>
+      <button class="operator" onclick="appendToDisplay('/')">/</button>
+      <button onclick="appendToDisplay('7')">7</button>
+      <button onclick="appendToDisplay('8')">8</button>
+      <button onclick="appendToDisplay('9')">9</button>
+      <button class="operator" onclick="appendToDisplay('*')">×</button>
+      <button onclick="appendToDisplay('4')">4</button>
+      <button onclick="appendToDisplay('5')">5</button>
+      <button onclick="appendToDisplay('6')">6</button>
+      <button class="operator" onclick="appendToDisplay('-')">-</button>
+      <button onclick="appendToDisplay('1')">1</button>
+      <button onclick="appendToDisplay('2')">2</button>
+      <button onclick="appendToDisplay('3')">3</button>
+      <button class="operator" onclick="appendToDisplay('+')">+</button>
+      <button onclick="appendToDisplay('0')">0</button>
+      <button onclick="appendToDisplay('.')">.</button>
+      <button class="equals" onclick="calculate()">=</button>
+    </div>
+  </div>
+
+  <script>
+    // Récupère l'élément d'affichage (input) pour interagir avec lui
+    let display = document.getElementById('display');
+
+    // Ajoute un caractère (chiffre, opérateur, etc.) à l'affichage
+    function appendToDisplay(value) {
+      // Si l'affichage est à "0" et la valeur n'est pas un point, remplace "0"
+      if (display.value === '0' && value !== '.') {
+        display.value = value;
+      } else {
+        // Sinon, ajoute la valeur à la suite de l'expression actuelle
+        display.value += value;
+      }
+    }
+
+    // Réinitialise l'affichage à "0"
+    function clearDisplay() {
+      display.value = '0';
+    }
+
+    // Calcule le résultat de l'expression affichée
+    function calculate() {
+      try {
+        // Évalue l'expression mathématique dans l'affichage avec eval()
+        const result = eval(display.value);
+        // Vérifie si le résultat est un nombre valide (non NaN ou infini)
+        if (isNaN(result) || !isFinite(result)) {
+          display.value = 'Erreur';
+        } else {
+          // Affiche le résultat arrondi à 2 décimales
+          display.value = result.toFixed(2);
+        }
+      } catch (error) {
+        // En cas d'erreur (ex. : syntaxe incorrecte), affiche "Erreur"
+        display.value = 'Erreur';
+      }
+    }
+
+    // Gère les entrées au clavier pour une interaction plus rapide
+    document.addEventListener('keydown', function(event) {
+      const key = event.key;
+      // Si la touche est un chiffre (0-9), l'ajouter à l'affichage
+      if (/[0-9]/.test(key)) {
+        appendToDisplay(key);
+      }
+      // Si la touche est un opérateur (+, -, *, /), l'ajouter à l'affichage
+      else if (key === '+' || key === '-' || key === '*' || key === '/') {
+        appendToDisplay(key);
+      }
+      // Si la touche est un point décimal, l'ajouter
+      else if (key === '.') {
+        appendToDisplay('.');
+      }
+      // Si la touche est "Entrée", calculer le résultat
+      else if (key === 'Enter') {
+        calculate();
+      }
+      // Si la touche est "Échap", réinitialiser l'affichage
+      else if (key === 'Escape') {
+        clearDisplay();
+      }
+      // Si la touche est une parenthèse, l'ajouter
+      else if (key === '(' || key === ')') {
+        appendToDisplay(key);
+      }
+    });
+  </script>
+</body>
+</html>
